@@ -12,7 +12,7 @@ div {
 h1 {
   text-align: center;
   text-transform: uppercase;
-  color: #4CAF50;
+  color: #ec4c4c;
 }
 
 p {
@@ -23,9 +23,9 @@ p {
 
 a {
   text-decoration: none;
-  color: #008CBA;
+  color: #4CAF50;
 }
 h4 {
   text-align: center;
-  color: #FF5733;
+  color: #4CAF50;
 }
