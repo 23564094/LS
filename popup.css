@@ -1,123 +1,60 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
-
-.container,
-.frame {
+body {
     display: flex;
-    justify-content: center;
     align-items: center;
-}
-
-.container {
-    width: 100%;
-    height: 100vh;
-}
-
-.modal {
-    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .3);
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    color: #f03d3d;
-    width: 330px;
-    height: 550px;
-    padding: 1em;
-    border-radius: 5px;
-    text-align: center;
-    font-family: sans-serif;
-    line-height: 1.2em;
-    position: relative;
-    transform: scale(0);
-    animation: popUp 1s ease-in-out forwards;
+    min-height: 100vh;
+    background-color: #f1f1f1;
 }
 
-.modal img {
-    position: absolute;
-    top: 20px;
+.content {
+    padding: 0 5rem;
 }
 
-.button {
-    background: #F65656;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: .7em 0;
-    font-size: 1em;
-    color: #eee;
-    font-weight: 500;
-    border-radius: 0 0 5px 5px;
-    cursor: pointer;
-}
-
-.button:hover {
-    background: #f03d3d;
-}
-
-.modal.toggle {
-    animation: popDown 1s ease-in-out forwards;
-}
-
-@keyframes popUp {
-    50% {transform: scale(1.2)}
-    100% {transform: scale(1)}
-}
-
-@keyframes popDown {
-    0% {transform: scale(1)}
-    50% {transform: scale(1.2)}
-    100% {transform: scale(0)}
-}
-
-div.d {
-    line-height: 200%;
-  }
-
-  h1 {
-    text-align: center;
-    color: #4CAF50;
-  }
-
-  .topnav a.active {
-    background-color: #04AA6D;
-    color: white;
-  }
-
-  .topnav-centered a {
-    float: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .topnav-centered a {
-    position: relative;
+.popup {
+    position: fixed;
     top: 0;
-    left: 0;
-    transform: none;
-  }
-  a:link {
-    color: green;
-    background-color: transparent;
-    text-decoration: none;
-  }
-  a:visited {
-    color: pink;
-    background-color: transparent;
-    text-decoration: none;
-  }
-  a:hover {
-    color: red;
-    background-color: transparent;
-    text-decoration: underline;
-  }
-  a:active {
-    color: yellow;
-    background-color: transparent;
-    text-decoration: underline;
-  }
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .3);
+    display: grid;
+    place-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 200ms ease-in-out opacity;
+}
+.popup-content {
+    width: clamp(300px, 90vw, 500px);
+    background-color: #fff;
+    padding: clamp(1.5rem, 100vw, 3rem);
+    box-shadow: 0 0 .5em rgba(0, 0, 0, .5);
+    border-radius: .5em;
+    opacity: 0;
+    transform: translateY(20%);
+    transition: 200ms ease-in-out opacity,
+                200ms ease-in-out transform;
+    position: relative;
+}
+.popup h1 {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+}
+.popup h1:active {
+    transform: scale(.9);
+}
+
+.showPopup {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
